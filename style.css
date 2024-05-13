@@ -1,0 +1,231 @@
+/* Themes */
+.theme-1 {
+    --bg-image-desktop: url(./img/slide1.jpg);
+    --bg-image-mobile: url(./img/slide1-min.jpg);
+    --accent: #B347AF;
+    --accent-darken: #A03F9D;
+    --text-primary: #FFF;
+    --text-secondary: #000;
+    --arrow-color: #FFF;
+    --glass-bg: rgba(76, 76, 76, .4);
+    --line-color: #A1B3C4;
+}
+
+.theme-2 {
+    --bg-image-desktop: url(./img/slide2.jpg);
+    --bg-image-mobile: url(./img/slide2-min.jpg);
+    --accent: #885322;
+    --accent-darken: #76491E;
+    --text-primary: #FFF;
+    --text-secondary: #FFF;
+    --arrow-color: #FFF;
+    --glass-bg: rgba(137, 100, 36, .4);
+    --line-color: #D39D41;
+}
+
+.theme-3 {
+    --bg-image-desktop: url(./img/slide3.jpg);
+    --bg-image-mobile: url(./img/slide3-min.jpg);
+    --accent: #FFF;
+    --accent-darken: #E8E8E8;
+    --text-primary: #FFF;
+    --text-secondary: #FFF;
+    --arrow-color: #000;
+    --glass-bg: rgba(76, 76, 76, .4);
+    --line-color: #1E1E1E;
+}
+
+body {
+    font-family: "Open Sans", sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h1 {
+    font-size: 3em;
+    color: var(--text-primary);
+}
+
+p {
+    margin-top: 0.5em;
+    max-width: 250px;
+}
+
+.hero .container {
+    background-image: var(--bg-image-mobile);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    max-width: 1200px;
+    min-height: 100vh;
+    margin: 0 auto;
+    padding: 2.5em;
+    display: grid;
+    grid-template-rows: auto max-content max-content;
+    transition: 400ms;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.brand {
+    text-decoration: none;
+    font-size: 2em;
+    font-weight: bold;
+    color: var(--text-primary);
+}
+
+.navbar span {
+    color: var(--text-secondary);
+    font-size: 2em;
+    cursor: pointer;
+}
+
+.hero img {width: 100%;}
+
+.title {
+    position: relative;
+    padding: 1em 0 1.5em 0;
+}
+
+.title h1, .title p {
+    z-index: 1;
+    position: relative;
+}
+
+.title p {color: var(--text-primary);}
+
+.title .glass {
+    position: absolute;
+    left: -2.5rem;
+    width: 96vw;
+    background-color: var(--glass-bg);
+    backdrop-filter: blur(15px);
+    z-index: 0;
+}
+
+.glass-1 {
+    bottom: 0;
+    height: 70%;
+}
+
+.glass-2 {
+    top: 0;
+    height: 15%;
+}
+
+.controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2em;
+}
+
+.controls .arrow,
+.controls .more {
+    background-color: var(--accent);
+    color: var(--arrow-color);
+    font-size: 2em;
+    border: none;
+    width: 2em;
+    height: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: 200ms;
+}
+
+.controls .arrow {border-radius: 50%;}
+
+.controls .arrow:hover,
+.controls .more:hover {
+    background-color: var(--accent-darken);
+}
+
+.controls span {font-size: 1em;}
+
+.card-text {
+    background-color: var(--text-primary);
+    padding: 2.5em;
+}
+
+.card-desktop, .line {display: none;}
+
+/* Large Screen Styles */
+@media screen and (min-width: 800px) {
+    .hero {
+        background-image: var(--bg-image-desktop);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        transition: 400ms;
+    }
+    .hero .container {
+        position: relative;
+        background-image: none;
+        grid-template-rows: auto max-content max-content max-content;
+    }
+    .title {position: static;}
+    .title .glass-1 {
+        width: 20%;
+        height: 100%;
+    }
+    .title .glass-2 {
+        width: 2%;
+        height: 100%;
+        left: 18%;
+    }
+    .title p {
+        float: right;
+        color: var(--text-secondary);
+    }
+    .navbar {
+        position: relative;
+        z-index: 1;
+    }
+    .card {
+        display: flex;
+        z-index: 1;
+        margin-top: -3em;
+    }
+    .card img {width: 9em;}
+    .card-text {padding: 2em;}
+    .card-mobile {display: none;}
+    .arrow {
+        position: absolute;
+        top: 20%;
+        z-index: 2;
+    }
+    .arrow-left {left: 50%;}
+    .arrow-right {left: 60%;}
+    .controls {
+        justify-content: flex-end;
+        padding-right: 6em;
+        z-index: 1;
+    }
+    .line {
+        display: block;
+        position: absolute;
+        background-color: var(--line-color);
+        z-index: 0;
+    }
+    .line-1, .line-3 {right: 0;}
+    .line-2, .line-3 {
+        height: 100vh;
+        width: 1px;
+    }
+    .line-2 {right: 21em;}
+    .line-1 {
+        width: 96.5%;
+        height: 1px;
+        bottom: 4.5em;
+    }
+}
